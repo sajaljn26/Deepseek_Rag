@@ -3,6 +3,8 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_community.vectorstores import FAISS
 
+
+
 pdfs_directory = 'pdfs/'
 #step 1 load pdf ->
 def upload_file(file):
@@ -33,7 +35,7 @@ text_chunks = create_chunks(documents)
 # step 3 -> Create Embeddings
 embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
 
-# step 4 -> Create Vector Database
+# step 4 -> Create Vector Databasesss
 FAISS_DB_PATH = "vectorstore/db_faiss"
 faiss_db = FAISS.from_documents(text_chunks, embeddings)
 faiss_db.save_local(FAISS_DB_PATH)
